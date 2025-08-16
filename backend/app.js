@@ -48,7 +48,7 @@ const server = http.createServer(app);
 // Attach Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // your frontend origin
+    origin: "*", // your frontend origin
     methods: ["GET", "POST"]
   }
 });
