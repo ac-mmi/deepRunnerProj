@@ -1,5 +1,6 @@
 // backend/app.js
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const http = require('http'); // <-- add this
 const { Server } = require('socket.io'); // <-- add this
@@ -27,6 +28,17 @@ app.use('/api/rfp', rfpRoutes);
 app.use('/api/rfpRes', rfpResponsesRoute);
 app.use('/api/subRes', subResponsesRoute);
 app.use('/api/rfpGet', rfpGet);
+
+
+
+// Serve React build files
+// Serve React build
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Catch-all for frontend, but ignore API routes
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/rfp_system';

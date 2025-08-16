@@ -10,7 +10,7 @@ export default function NotificationBell({ userId, userRole }) {
 
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io('http://localhost:5000', { transports: ['websocket'] });
+      socketRef.current = io('/', { transports: ['websocket'] });
     }
     const socket = socketRef.current;
 

@@ -13,7 +13,7 @@ export default function BuyerRFPList() {
       setError(null);
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/rfp/list', {
+        const res = await fetch('/api/rfp/list', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -58,7 +58,7 @@ export default function BuyerRFPList() {
                     {rfp.documents.map((doc, index) => (
                     <span key={index}>
                         <a
-                        href={`http://localhost:5000/${doc.path}`}
+                        href={`/${doc.path}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className='card-doc-link'
