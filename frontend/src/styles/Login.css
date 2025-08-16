@@ -1,0 +1,56 @@
+.form{
+    background-color: white;
+}
+
+.form-mod
+{
+     background-color: white;
+    border-radius: 10px;
+    border:1px solid rgb(223, 223, 223);
+}
+
+.form-title
+{
+    font-size: 25px !important;
+}
+
+.form-title-sm
+{
+    font-size: 18px !important;
+}
+
+.submit-btn
+{
+    font-size: 14px;
+    background-color: #036ED1;
+    border:none;
+    padding:7px 10px;
+}
+
+.form-subtitle
+{
+    color: rgb(118, 118, 118);
+    font-size: 14px;
+}
+
+.reg_log_back{
+    background: linear-gradient(to top right,#4962D7,#2f55ff,#FFCA38);
+    height: 100vh;
+}
+
+.form label
+{
+    font-size: 14px;
+    font-weight: 500;
+}
+.form-mod label
+{
+    font-size: 14px;
+    font-weight: 500;
+}
+.link
+{
+    text-decoration: none;
+    color:#2f55ff;
+    font-weight: 500;
+}

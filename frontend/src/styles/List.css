@@ -1,0 +1,104 @@
+.list-card
+{
+    background: linear-gradient(to top,rgb(235, 241, 255),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+.list-card-reject
+{
+    background: linear-gradient(to top,rgb(255, 235, 235),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+.list-card-approved
+{
+    background: linear-gradient(to top,rgb(239, 255, 235),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+strong{
+    font-weight: 500;
+}
+
+.card-desc
+{
+    font-size: 14px;
+    display: -webkit-box;       /* Required for line clamp */
+    -webkit-line-clamp: 2;      /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Vertical orientation */
+    overflow: hidden;           /* Hide overflow text */
+    text-overflow: ellipsis;    /* Ellipsis (...) */
+}
+.card-doc
+{
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
+.card-doc-link
+{
+    font-size: 14px !important;
+    text-decoration: none;
+    color: black;
+
+}
+
+.card-doc-link i
+{
+    color: rgb(255, 93, 93);
+}
+
+.modal-res
+{
+    background: white !important; 
+    padding: 20px; 
+    border-radius: 5px; 
+    max-width: 500px;
+    width:100% ;
+
+}
+.modal-res h5
+{
+    font-size: 16px;
+}
+
+.modal-res button
+{
+    font-size: 14px;
+    background-color: #004095;
+    border:none;
+    border-radius: 5px;
+}
+
+.success_btn
+{
+    font-size: 14px;
+    background-color: #004095;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.button-res
+{
+    font-size: 14px;
+    background:linear-gradient(to top right,#799492,#5482D7) ;
+    border:1px solid #2C7888;
+    border-radius:0 0 10px 10px;
+    padding: 5px 10px;
+    color: white;
+}
+
+.border_bottom
+{
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.title
+{
+    font-size: 18px;
+}

@@ -1,0 +1,109 @@
+.head_pane
+{
+    background-color: #003C8B;
+    color: white;
+}
+.body{
+    background-color: rgb(242, 242, 242);
+}
+
+.list-card
+{
+    background: linear-gradient(to top,rgb(235, 241, 255),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+.list-card-reject
+{
+    background: linear-gradient(to top,rgb(255, 235, 235),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+.list-card-approved
+{
+    background: linear-gradient(to top,rgb(239, 255, 235),white);
+    border-radius: 10px;
+    border:1px solid rgb(224, 224, 224);
+}
+
+.list-card
+{
+    font-size: 15px !important;
+}
+.approved
+{
+    font-size: 12px;
+    text-transform: capitalize;
+    background:linear-gradient(to top,#3ffc7e,#3ffc7e);
+    border-radius: 5px;
+    padding: 2px 7px;
+    color: black;
+    text-transform: capitalize;
+}
+
+.reject
+{
+    font-size: 12px;
+    text-transform: capitalize;
+    background:linear-gradient(to top,#ff6d6d,#ff6d6d);
+    border-radius: 5px;
+    padding: 2px 7px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.back-btn
+{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.clamp-3
+{
+    font-size: 14px;
+    display: -webkit-box;       /* Required for line clamp */
+    -webkit-line-clamp: 2;      /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Vertical orientation */
+    overflow: hidden;           /* Hide overflow text */
+    text-overflow: ellipsis;    /* Ellipsis (...) */
+}
+
+.btn-app
+{
+    color: white;
+    font-size: 14px;
+    background-color: #00b94a;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn-rej
+{
+    color: white;
+    font-size: 13px;
+    background-color: #e73c3c;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 13px;
+    margin-right: 10px;
+}
+
+.btn-ref
+{
+    color: #003C8B;
+    font-size: 13px;
+    background-color: white;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 13px;
+    margin-right: 10px;
+}
+
+.alert-my
+{
+    font-size: 14px;
+}

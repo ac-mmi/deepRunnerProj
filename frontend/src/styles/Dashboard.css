@@ -1,0 +1,74 @@
+.dashboard-pane{
+background:linear-gradient(to bottom,#004095,#003882);
+color: white;
+}
+
+.title
+{
+font-weight: normal;
+font-size: 22px;
+}
+
+.logout
+{
+    background-color: transparent;
+    border:none;
+    font-size: 20px;
+}
+
+.dash_pane
+{
+background-color: white;
+border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.dash_pane h3
+{
+    font-size: 18px;
+}
+
+.dash_pane p
+{
+    font-size: 14px;
+}
+.body
+{
+    background-color: rgb(242, 242, 242);
+    min-height: 100vh;
+}
+
+.btn-nav
+{
+    background: transparent;
+    border:none;
+    color: rgb(134, 134, 134);
+    font-weight: 500;
+}
+
+.btn-nav-active
+{
+    background:transparent;
+    border:none;
+    color: #1BAA30;
+    border-radius: 0;
+    border-bottom: 3px solid #1BAA30;
+    font-weight: 500;
+}
+
+.btn-nav-active:hover,
+.btn-nav:hover
+{
+background: transparent;
+border-radius: 0;
+color: #1BAA30;
+}
+
+.res-btn
+{
+    text-decoration: none;
+    background-color: #2E69E6;
+    padding: 7px 15px;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+}
