@@ -2,19 +2,19 @@
 import React from 'react';
 import BuyerDashboard from './BuyerDashboard';
 import SupplierDashboard from './SupplierDashboard';
-import NotificationBell from './NotificationBell';
 import '../styles/Dashboard.css';
+import Navbar from './Navbar';
+import GridImage from '../assets/grid.png'
 export default function Dashboard({ user, onLogout }) {
   return (
     <div className="container-fluid mx-0 px-0 body">
-        <div className="containe-fluid dashboard-pane pt-5">
+        <Navbar user={user} onLogout={onLogout}/>
+        <div className="container-fluid dashboard-pane pt-4 pb-2">
+            <img src={GridImage} className='grid' alt="" />
         <div className="container pb-1">
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex flex-column justify-content-start align-items-start mb-4">
+                <h6 className='greet mb-1'>Good Morning,</h6>
                 <h2 className='title mb-0'>👋 Welcome, {user.email} ({user.role})</h2>
-                <div className='d-flex'>
-                <NotificationBell userId={user._id} userRole={user.role} />
-                <button class="btn btn-secondary logout" onClick={onLogout}><i class="bi bi-power"></i></button>
-                </div>
             </div>
             <div>
         </div>

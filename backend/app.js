@@ -32,7 +32,6 @@ app.use('/api/rfpGet', rfpGet);
 
 
 // Serve React build files
-// Serve React build
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Catch-all for frontend, but ignore API routes
