@@ -26,7 +26,7 @@ export default function BuyerCreateRFP() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/rfp/create', {
+      const res = await fetch('/api/rfp/create', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
