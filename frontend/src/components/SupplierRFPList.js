@@ -22,7 +22,7 @@ export default function SupplierRFPList() {
     }
     setLoading(true);
     setError(null);
-    fetch('http://localhost:5000/api/search', {
+    fetch('/api/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: searchTerm }),
@@ -74,7 +74,7 @@ export default function SupplierRFPList() {
 
     try {
       const token = localStorage.getItem('token'); // assuming you use token auth
-      const res = await fetch('http://localhost:5000/api/rfpRes/respond', {
+      const res = await fetch('/api/rfpRes/respond', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ export default function SupplierRFPList() {
                     {rfp.documents.map((doc, index) => (
                       <span key={index}>
                         <a
-                          href={`http://localhost:5000/${doc.path}`}
+                          href={`/${doc.path}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className='card-doc-link'

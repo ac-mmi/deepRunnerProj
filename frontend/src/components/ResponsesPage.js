@@ -14,7 +14,7 @@ export default function ResponsesPage() {
   const fetchRfpDetails = useCallback(async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/rfp/${rfpId}`, {
+      const res = await fetch(`/api/rfp/${rfpId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error('Failed to fetch RFP details');
@@ -32,7 +32,7 @@ export default function ResponsesPage() {
     setError(null);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/rfpGet/${rfpId}/responses`, {
+      const res = await fetch(`/api/rfpGet/${rfpId}/responses`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error('Failed to fetch responses');
@@ -55,7 +55,7 @@ export default function ResponsesPage() {
     setError(null);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/rfpRes/${responseId}`, {
+      const res = await fetch(`/api/rfpRes/${responseId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
