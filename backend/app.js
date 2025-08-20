@@ -30,7 +30,6 @@ app.use('/api/subRes', subResponsesRoute);
 app.use('/api/rfpGet', rfpGet);
 
 
-
 // Serve React build files
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 

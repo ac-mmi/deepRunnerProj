@@ -161,4 +161,51 @@ router.get('/:rfpId', authMiddleware, async (req, res) => {
   }
 });
 
+// DELETE /api/rfp/:rfpId
+// DELETE /api/rfp/:rfpId
+router.delete('/:rfpId', authMiddleware, async (req, res) => {
+  try {
+    const { rfpId } = req.params;
+    const userId = req.user.id;
+    const role = req.user.role;
+
+    const rfp = await RFPModel.findById(rfpId);
+    if (!rfp) return res.status(404).json({ error: 'RFP not found' });
+
+    if (role !== 'buyer' || rfp.createdBy.toString() !== userId) {
+      return res.status(403).json({ error: 'Not authorized to delete this RFP' });
+    }
+
+    await RFPModel.findByIdAndDelete(rfpId);
+
+    // Algolia deletion (safe wrapped)
+    try {
+      await algoliaIndex.deleteObject(rfpId.toString());
+    } catch (err) {
+      console.error("Algolia deletion error:", err);
+    }
+
+    // 🔍 Debug log here
+    console.log(">>> emitting rfpDeleted", rfpId);
+
+    const io = req.app.get("io");
+    if (io) {
+      io.emit("rfpDeleted", {
+        rfpId,
+        title: rfp.title,
+        message: `RFP "${rfp.title}" was deleted`,
+      });
+    } else {
+      console.error(">>> io is undefined!");
+    }
+
+    res.json({ message: "RFP deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+
 module.exports = router;

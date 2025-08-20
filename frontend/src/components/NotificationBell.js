@@ -8,37 +8,52 @@ export default function NotificationBell({ userId, userRole }) {
   const [open, setOpen] = useState(false);
   const socketRef = useRef(null);
 
-  useEffect(() => {
-    if (!socketRef.current) {
-      socketRef.current = io('/', { transports: ['websocket'] });
+ useEffect(() => {
+  if (!socketRef.current) {
+    socketRef.current = io("http://localhost:5000", { transports: ['websocket'] });
+  }
+  const socket = socketRef.current;
+
+  if (userId) {
+    socket.emit('register', userId);
+  }
+
+  // Buyer gets notification when a supplier responds
+  socket.on('newResponse', (data) => {
+    if (userRole === 'buyer') {
+      console.log("📩 newResponse received:", data);
+      setNotifications(prev => [{ message: data.message, time: new Date() }, ...prev]);
+      setUnreadCount(count => count + 1);
     }
-    const socket = socketRef.current;
+  });
 
-    if (userId) {
-      socket.emit('register', userId);
+  // Supplier gets notification when buyer updates response status
+  socket.on('responseStatusUpdated', (data) => {
+    if (userRole === 'supplier') {
+      console.log("📩 responseStatusUpdated received:", data);
+      setNotifications(prev => [{ message: data.message, time: new Date() }, ...prev]);
+      setUnreadCount(count => count + 1);
     }
+  });
 
-    socket.on('newResponse', (data) => {
-      if (userRole === 'buyer') {
-        setNotifications(prev => [{ message: data.message, time: new Date() }, ...prev]);
-        setUnreadCount(count => count + 1);
-      }
-    });
+  // NEW: Notify when an RFP is deleted
+  socket.on('rfpDeleted', (data) => {
+    console.log("🔥 rfpDeleted event received:", data, typeof data);
+    console.log("🔥 rfpDeleted event received:", data);
+    setNotifications(prev => [{ message: data.message, time: new Date() }, ...prev]);
+    setUnreadCount(count => count + 1);
+  });
 
-    socket.on('responseStatusUpdated', (data) => {
-      if (userRole === 'supplier') {
-        setNotifications(prev => [{ message: data.message, time: new Date() }, ...prev]);
-        setUnreadCount(count => count + 1);
-      }
-    });
+  // ✅ Cleanup at root level (important)
+  return () => {
+    socket.off('newResponse');
+    socket.off('responseStatusUpdated');
+    socket.off('rfpDeleted');
+  };
+}, [userId, userRole]);
 
-    return () => {
-      socket.off('newResponse');
-      socket.off('responseStatusUpdated');
-    };
-  }, [userId, userRole]);
 
-  const toggleDropdown = () => {
+const toggleDropdown = () => {
     if (!open) {
       // When opening dropdown, reset unread count (hide badge)
       setUnreadCount(0);
