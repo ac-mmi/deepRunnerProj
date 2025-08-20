@@ -109,19 +109,19 @@ export default function BuyerRFPList() {
               </div>
 
               {/* Buttons row */}
-              <div className="d-flex gap-2 mt-2">
+              <div className="d-flex">
                 <button
                   onClick={() =>
                     (window.location.href = `/responses/${rfp._id}`)
                   }
-                  className="btn btn-outline-primary w-100 py-2"
+                  className="btn btn-primary w-100 py-2"
                 >
                   <i className="bi bi-eye-fill me-1"></i> See Responses
                 </button>
 
                 <button
                   onClick={() => handleDelete(rfp._id)}
-                  className="btn btn-outline-danger w-100 py-2"
+                  className="btn btn-danger w-100 py-2"
                 >
                   <i className="bi bi-trash-fill me-1"></i> Delete
                 </button>
