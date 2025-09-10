@@ -114,14 +114,14 @@ export default function BuyerRFPList() {
                   onClick={() =>
                     (window.location.href = `/responses/${rfp._id}`)
                   }
-                  className="btn btn-primary w-100 py-2"
+                  className="btn btn-primary w-100 py-2 res_btn"
                 >
                   <i className="bi bi-eye-fill me-1"></i> See Responses
                 </button>
 
                 <button
                   onClick={() => handleDelete(rfp._id)}
-                  className="btn btn-danger w-100 py-2"
+                  className="btn btn-danger w-100 py-2 del_btn"
                 >
                   <i className="bi bi-trash-fill me-1"></i> Delete
                 </button>

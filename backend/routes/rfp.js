@@ -162,7 +162,6 @@ router.get('/:rfpId', authMiddleware, async (req, res) => {
 });
 
 // DELETE /api/rfp/:rfpId
-// DELETE /api/rfp/:rfpId
 router.delete('/:rfpId', authMiddleware, async (req, res) => {
   try {
     const { rfpId } = req.params;

@@ -102,3 +102,19 @@ strong{
 {
     font-size: 18px;
 }
+
+.del_btn
+{
+border-radius: 0 0px 10px 0px;
+font-size: 14px;
+background:linear-gradient(to top,#FF6363,#FF426E);
+border:none;
+}
+
+.res_btn
+{
+border-radius: 0 0px 0px 10px;
+font-size: 14px;
+background:linear-gradient(to top,#4054C2,#4087C2);
+border:none;
+}
